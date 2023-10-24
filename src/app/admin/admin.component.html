@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <label for="">Recipe:</label>
+      <ul class="list-group">
+        <li
+          *ngFor="let recipe of recipes"
+          class="selected list-item mt-1 p-1 d-flex flex-row justify-content-between border"
+          style="list-style: none; cursor: pointer"
+          (click)="onSelectRecipe(recipe)"
+        >
+          <p class="m-0">{{ recipe.title }}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-6">
+      <div *ngIf="recipeWasSelected">
+        <form
+          [formGroup]="form"
+          (ngSubmit)="onSave()"
+          class="d-flex flex-column"
+        >
+          <label for="prep-time">Prep time:</label>
+          <input type="text" formControlName="prepTime" />
+          <label for="cooking-time">Cooking time:</label>
+          <input type="text" formControlName="cookingTime" />
+          <br />
+          <button class="btn btn-primary">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <app-alert [time]="timeSet" *ngIf="showAlert"></app-alert>
+  </div>
+</div>

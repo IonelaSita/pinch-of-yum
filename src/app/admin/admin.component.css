@@ -1,0 +1,4 @@
+.selected:hover {
+  background-color: rgba(0, 110, 255, 0.433);
+opacity: 0.9;
+}

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <ul class="list-group">
+        <div class="row" *ngFor="let recipe of recipes">
+          <li
+            class="list-item mt-4 d-flex flex-row justify-content-between"
+            style="list-style: none; cursor: pointer"
+            (click)="onSelectRecipe(recipe)"
+          >
+            <div class="col-8">
+              <h5>{{ recipe.title }}</h5>
+              <p>{{ recipe.description | short : [100] }}</p>
+            </div>
+            <div class="col-3">
+              <img
+                class="img-fluid p-2"
+                src="{{ recipe.imagePath }}"
+                alt="{{ recipe.title }}"
+              />
+            </div>
+          </li>
+          <hr />
+        </div>
+      </ul>
+    </div>
+    <div class="col-9 ps-4">
+      <div>
+        <app-recipe [recipe]="selectedRecipe"></app-recipe>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<br />
+<div
+  *ngIf="time == true; else danger"
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+>
+  Your changes have been saved!
+</div>
+
+<ng-template #danger>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    Something went wrong. Please try again!
+  </div>
+</ng-template>
